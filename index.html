@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blue Ocean - Discover and register for upcoming events at KIIT University." />
+  <title>Blue Ocean | KIIT University Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true"><span>Blue Ocean</span><span id="loaderNum">0</span></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+  <div class="curtain" id="curtain" aria-hidden="true"><span id="curtainLabel"></span></div>
+
+  <header class="bar">
+    <a href="#top" class="bar-logo" aria-label="Blue Ocean home">Blue Ocean</a>
+    <nav class="bar-nav" aria-label="Main navigation">
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="bar-right">
+      <span class="clock">Bhubaneswar, <span id="clock">--:--</span></span>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="t-light">Light</span><span class="t-dark">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1 class="hero-title" aria-label="Blue Ocean">
+        <span class="line"><span>Blue</span></span>
+        <span class="line"><span>Ocean</span></span>
+      </h1>
+      <div class="hero-meta">
+        <div><small>Season</small><p>2026</p></div>
+        <div><small>Where</small><p>KIIT University,<br />Bhubaneswar</p></div>
+        <div><small>Covering</small><p>Tech, music, business, art, sports and education</p></div>
+        <a href="#events" class="hero-scroll">Scroll</a>
+      </div>
+    </section>
+
+    <div class="flow">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <section class="events" id="events">
+      <div class="head">
+        <h2>Selected events</h2>
+        <p>Browse, search and filter what is happening on the KIIT campus this season.</p>
+      </div>
+
+      <div class="filters">
+        <div class="search">
+          <label class="sr-only" for="searchInput">Search events</label>
+          <input id="searchInput" type="search" placeholder="Search events, venues, categories" />
+        </div>
+        <div class="chips" id="categoryChips" role="tablist" aria-label="Filter by category">
+          <button class="chip active" data-category="All" role="tab" aria-selected="true">All</button>
+          <button class="chip" data-category="Technology" role="tab" aria-selected="false">Technology</button>
+          <button class="chip" data-category="Music" role="tab" aria-selected="false">Music</button>
+          <button class="chip" data-category="Business" role="tab" aria-selected="false">Business</button>
+          <button class="chip" data-category="Art" role="tab" aria-selected="false">Art</button>
+          <button class="chip" data-category="Sports" role="tab" aria-selected="false">Sports</button>
+          <button class="chip" data-category="Education" role="tab" aria-selected="false">Education</button>
+        </div>
+      </div>
+
+      <div id="eventGrid" class="event-grid" aria-live="polite"></div>
+      <p id="noResults" class="no-results" hidden>No events match your search. Try another keyword or category.</p>
+    </section>
+
+    <section class="about" id="about">
+      <p class="about-text">Blue Ocean puts every KIIT campus event in one place, from tech summits at Campus 6 to music nights at the Open Air Theatre. Find something, register in seconds, and show up.</p>
+      <div class="about-stats">
+        <div><span class="stat-number" data-target="50" data-suffix="+">0</span><small>Events</small></div>
+        <div><span class="stat-number" data-target="12" data-suffix="K+">0</span><small>Students</small></div>
+        <div><span class="stat-number" data-target="25" data-suffix="+">0</span><small>Schools</small></div>
+      </div>
+    </section>
+
+    <section class="register" id="register">
+      <h2>Save your spot</h2>
+      <div class="register-grid">
+      <form id="registrationForm" class="form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Aditi Sharma" autocomplete="name" />
+          <span class="error" id="nameError"></span>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+          <span class="error" id="emailError"></span>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" placeholder="9876543210" autocomplete="tel" />
+          <span class="error" id="phoneError"></span>
+        </div>
+        <div class="field">
+          <label for="eventSelect">Event</label>
+          <select id="eventSelect" name="event"><option value="">Choose an event</option></select>
+          <span class="error" id="eventError"></span>
+        </div>
+        <fieldset class="styles">
+          <legend>Pass style</legend>
+          <label class="sw"><input type="radio" name="style" value="ocean" checked /><span style="--c:#1d3cff"></span>Ocean</label>
+          <label class="sw"><input type="radio" name="style" value="coral" /><span style="--c:#ff5a3c"></span>Coral</label>
+          <label class="sw"><input type="radio" name="style" value="lime" /><span style="--c:#c6f432"></span>Lime</label>
+          <label class="sw"><input type="radio" name="style" value="ink" /><span style="--c:#141414"></span>Ink</label>
+        </fieldset>
+        <div class="field full">
+          <button type="submit" class="btn">Confirm registration</button>
+          <p id="formMessage" class="form-message" role="status"></p>
+        </div>
+      </form>
+
+      <aside class="pass-wrap" aria-label="Your event pass preview">
+        <div class="pass" id="pass" data-theme="ocean">
+          <div class="pass-img">
+            <img id="passImg" src="" alt="" />
+            <span id="passCat" class="badge">Event</span>
+          </div>
+          <div class="pass-body">
+            <small>Event pass</small>
+            <h3 id="passTitle">Pick an event to build your pass</h3>
+            <p id="passMeta" class="pass-meta">Date and venue appear here.</p>
+            <div class="pass-row">
+              <div><small>Name</small><b id="passName">Your name</b></div>
+              <div><small>Pass ID</small><b id="passId">BO-----</b></div>
+            </div>
+            <div class="pass-bars" id="passBars" aria-hidden="true"></div>
+          </div>
+          <span class="stamp" id="passStamp">Confirmed</span>
+        </div>
+        <p class="pass-note">This pass updates as you fill in the form.</p>
+      </aside>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <h2 class="footer-title">Come<br />say hi</h2>
+    <div class="footer-cols">
+      <div><small>For inquiries</small><a href="mailto:events@blueocean.kiit">events@blueocean.kiit</a></div>
+      <div><small>Find us</small><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
+      <div><small>Venue</small><p>KIIT University,<br />Patia, Bhubaneswar</p></div>
+    </div>
+    <p class="footer-sub">© 2026 Blue Ocean. KIIT University campus events.</p>
+  </footer>
+
+  <div id="eventModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close event details">Close</button>
+      <div class="modal-image-wrap">
+        <img id="modalImage" src="" alt="" />
+        <span id="modalCategory" class="badge"></span>
+      </div>
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <p id="modalMeta" class="meta"></p>
+        <p id="modalDesc" class="modal-desc"></p>
+        <div id="countdown" class="countdown"></div>
+        <button id="modalRegister" class="btn" type="button">Register for this event</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
