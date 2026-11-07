@@ -2,11 +2,11 @@
 
 A modern, responsive event management website for **KIIT University**, built with pure HTML5, CSS3, and vanilla JavaScript. Students can explore campus events, search and filter by category, view detailed event info with live countdown timers, and register instantly — with data saved to Local Storage.
 
-🔗 **Live Demo:** [https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/](https://abdullah2004nova.github.io/Blue-Ocean/)
-📁 **Repository:** [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME](https://github.com/Abdullah2004nova/Blue-Ocean)
+🔗 **Live Demo:** https://abdullah2004nova.github.io/Blue-Ocean/
+📁 **Repository:** https://github.com/Abdullah2004nova/Blue-Ocean
 
 ---
-
+``
 ## ✨ Features
 
 ### Core Requirements
