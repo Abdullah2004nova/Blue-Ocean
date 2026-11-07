@@ -5,8 +5,6 @@ A modern, responsive event management website for **KIIT University**, built wit
 🔗 **Live Demo:** https://abdullah2004nova.github.io/Blue-Ocean/
 📁 **Repository:** https://github.com/Abdullah2004nova/Blue-Ocean
 
----
-``
 ## ✨ Features
 
 ### Core Requirements
